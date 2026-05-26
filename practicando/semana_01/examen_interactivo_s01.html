@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Corregido V3 - GLEKOM</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 650px; width: 100%; }
+        h1 { color: #1a73e8; text-align: center; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; }
+        .pregunta { margin-bottom: 25px; padding: 15px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; }
+        .opcion { display: block; margin: 12px 0; cursor: pointer; padding: 10px; border-radius: 6px; border: 1px solid transparent; }
+        .opcion:hover { background: #f1f3f4; border: 1px solid #dadce0; }
+        button { background: #1a73e8; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
+        button:hover { background: #1557b0; }
+        #resultado { margin-top: 20px; padding: 20px; display: none; border-radius: 8px; text-align: center; font-weight: bold; }
+        .explicacion { font-size: 0.9em; color: #444; margin-top: 12px; display: none; background: #e8f0fe; padding: 12px; border-left: 5px solid #1a73e8; border-radius: 4px; }
+        code { background: #eee; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 Quiz Semanal: HTML & Estructura</h1>
+    <div id="quiz"></div>
+    <button onclick="calificar()">Finalizar y Ver Resultados</button>
+    <div id="resultado"></div>
+    <button id="reintentar" style="display:none; margin-top:15px; background:#34a853;" onclick="location.reload()">Intentar de Nuevo</button>
+</div>
+
+<script>
+    // Usamos &lt; y &gt; para que el navegador no "ejecute" las etiquetas
+    const preguntas = [
+        {
+            p: "1. ¿Cuál es la función principal de las etiquetas semánticas como &lt;header&gt;, &lt;main&gt; y &lt;footer&gt;?",
+            o: ["Hacer que la página se vea más bonita", "Ayudar a buscadores (SEO) y accesibilidad", "Son obligatorias para mostrar texto"],
+            r: 1,
+            exp: "La semántica ayuda a las máquinas y lectores de pantalla a entender la estructura del contenido."
+        },
+        {
+            p: "2. Para pasos ordenados (1, 2, 3), ¿qué etiqueta es la correcta?",
+            o: ["&lt;ul&gt; (Unordered List)", "&lt;li&gt; (List Item)", "&lt;ol&gt; (Ordered List)"],
+            r: 2,
+            exp: "La etiqueta &lt;ol&gt; define listas ordenadas numéricamente."
+        },
+        {
+            p: "3. ¿Qué hace el atributo 'colspan=3' en una celda de tabla?",
+            o: ["Crea 3 tablas nuevas", "Une 3 filas verticalmente", "Une 3 columnas horizontalmente"],
+            r: 2,
+            exp: "Colspan expande una celda a lo ancho de varias columnas en la misma fila."
+        },
+        {
+            p: "4. ¿Para qué sirve el atributo 'name' en un input de formulario?",
+            o: ["Para que el usuario vea su nombre", "Para que el Backend identifique el dato enviado", "Para cambiar el color del campo"],
+            r: 1,
+            exp: "El atributo 'name' es la clave que permite al servidor procesar la información del formulario."
+        }
+    ];
+
+    function mostrarQuiz() {
+        const quizDiv = document.getElementById('quiz');
+        preguntas.forEach((pre, i) => {
+            let html = `<div class="pregunta"><p><strong>${pre.p}</strong></p>`;
+            pre.o.forEach((op, j) => {
+                html += `<label class="opcion"><input type="radio" name="p${i}" value="${j}"> ${op}</label>`;
+            });
+            html += `<div id="exp${i}" class="explicacion"><strong>💡 Explicación:</strong> ${pre.exp}</div></div>`;
+            quizDiv.innerHTML += html;
+        });
+    }
+
+    function calificar() {
+        let puntos = 0;
+        let contestadas = 0;
+        preguntas.forEach((pre, i) => {
+            const seleccionado = document.querySelector(`input[name="p${i}"]:checked`);
+            const expDiv = document.getElementById(`exp${i}`);
+            if (seleccionado) {
+                contestadas++;
+                expDiv.style.display = "block";
+                if (parseInt(seleccionado.value) === pre.r) puntos++;
+            }
+        });
+
+        if (contestadas < preguntas.length) {
+            alert("Por favor, responde todas las preguntas.");
+            return;
+        }
+
+        const resDiv = document.getElementById('resultado');
+        resDiv.style.display = "block";
+        resDiv.innerHTML = `<h2>Puntaje: ${puntos} / ${preguntas.length}</h2>`;
+        resDiv.style.background = puntos === preguntas.length ? "#d4edda" : "#fff3cd";
+        document.getElementById('reintentar').style.display = "block";
+    }
+
+    mostrarQuiz();
+</script>
+
+</body>
+</html>

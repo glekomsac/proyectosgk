@@ -1,0 +1,89 @@
+/* 1. Reset Global: Evita que el padding deforme el tamaño de nuestras cajas */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333333;
+    padding: 40px;
+}
+
+.titulo-principal {
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+#subtitulo-bienvenida {
+    color: #666666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 2. El Contenedor Padre (La Tarjeta) */
+.tarjeta-servicio {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;       /* Ancho controlado para que no ocupe toda la pantalla */
+    margin: 0 auto;         /* Centra la tarjeta horizontalmente */
+    padding: 30px;          /* Espacio interno de la tarjeta */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-servicio h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* 3. Estilos de los Campos del Formulario (Box Model Puro) */
+.grupo-campo {
+    margin-bottom: 20px;    /* Margen externo inferior para separar cada bloque de pregunta */
+}
+
+.grupo-campo label {
+    display: block;
+    margin-bottom: 8px;     /* Separa el texto del label del cuadro de entrada */
+    font-weight: 600;
+    font-size: 14px;
+    color: #34495e;
+}
+
+.input-formulario {
+    width: 100%;            /* El input ocupa todo el ancho de la tarjeta */
+    padding: 12px;          /* Espacio interno para que el texto respire y sea fácil de clickear */
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;          /* Quita el borde azul genérico del navegador */
+    transition: border-color 0.2s;
+}
+
+/* 4. El Botón */
+.btn-primario {
+    background-color: #1a73e8;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    padding: 14px;          /* Padding generoso para un botón móvil y web amigable */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;       /* Empuja el botón un poco hacia abajo del último input */
+}
+
+.btn-primario:hover {
+    background-color: #1557b0; /* Oscurece el botón al pasar el mouse */
+}

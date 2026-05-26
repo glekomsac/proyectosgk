@@ -1,0 +1,55 @@
+/* ==========================================
+   APLICANDO PSEUDOCLASES (Interactividad)
+   ========================================== */
+
+/* :hover - Se activa cuando el mouse pasa sobre el botón */
+.btn-primario:hover {
+    background-color: #1557b0; /* Un azul más oscuro */
+    box-shadow: 0 0.5rem 1rem rgba(26, 115, 232, 0.2); /* Sombra elegante */
+    transform: translateY(-2px); /* Eleva el botón ligeramente */
+}
+
+/* :active - Se activa en el microsegundo exacto en que se hace clic */
+.btn-primario:active {
+    transform: translateY(0); /* El botón regresa a su posición original simulando un clic físico */
+    transition: all 0.3s ease;
+}
+
+/* :focus - Se activa cuando el usuario hace clic dentro del input para escribir */
+.input-formulario:focus {
+    border-color: #1a73e8; /* El borde gris se vuelve azul GLEKOM */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15); /* Efecto de brillo exterior */
+    transition: all 0.3s ease;
+}
+
+
+/* ==========================================
+   APLICANDO PSEUDOELEMENTOS (Efectos Visuales)
+   ========================================== */
+
+/* Usaremos ::after para colocar un asterisco rojo automático 
+   a todos los labels que representen campos obligatorios */
+.grupo-campo label::after {
+    content: " *"; /* Texto que se inyectará dinámicamente */
+    color: #e74c3c; /* Color rojo para indicar obligatoriedad */
+    font-weight: bold;
+}
+
+/* Usaremos ::before para crear una pequeña barra decorativa azul 
+   debajo del título del registro */
+.tarjeta-servicio h2 {
+    position: relative; /* Necesario para posicionar el pseudoelemento interno */
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta-servicio h2::before {
+    content: ""; /* OBLIGATORIO: Si no pones content, el pseudoelemento no se dibuja */
+    position: absolute;
+    bottom: -6px; /* Lo ubica justo debajo del texto */
+    left: 0;
+    width: 50px; /* Ancho de la línea decorativa */
+    height: 4px; /* Grosor de la línea */
+    background-color: #1a73e8; /* Color azul */
+    border-radius: 2px;
+}

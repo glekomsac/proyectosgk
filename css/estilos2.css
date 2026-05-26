@@ -1,0 +1,41 @@
+p {
+    /* Color de la letra */
+    color: green;
+    
+    /* Tamaño de letra (agregado) */
+    font-size: 18px;
+    
+    /* Negrita y Cursiva */
+    font-weight: bold;
+    font-style: italic;
+    
+    /* Tipo de letra (se agregó una familia de fuentes) */
+    font-family: Arial, sans-serif;
+    
+    /* Alineación */
+    text-align: justify;
+    
+    /* Dimensiones */
+    width: 500px;
+    height: 400px;
+    
+    /* Box Model (Modelo de caja) */
+    padding: 30px;
+    margin: 50px auto; /* 'auto' ayuda a centrar el bloque horizontalmente */
+    border: 10px solid black;
+    box-sizing: border-box; /* ¡Excelente que lo uses! Mantiene el tamaño real en 500px */
+    
+    /* Estética visual */
+    background-color: aqua;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 0px rgba(44, 77, 104, 0.5); /* Sombra más sutil */
+}
+
+/* Selectores de prioridad */
+.ejemplo {
+    color: red; /* Se aplica a elementos con class="ejemplo" */
+}
+
+#unico {
+    color: blue; /* Se aplica al elemento con id="unico" (prioridad máxima) */
+}

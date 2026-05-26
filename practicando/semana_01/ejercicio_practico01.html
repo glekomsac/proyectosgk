@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Tecnológicos - Estructura Semántica</title>
+</head>
+
+<body>
+    <header>
+        <h1>Soluciones Digitales Pro</h1>
+        <p>Impulsando la transformación tecnológica desde Lima.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nuestros Servicios</h2>
+            <article>
+                <h3>Desarrollo Web Full Stack</h3>
+                <p>Creamos aplicaciones robustas con Python y React.</p>
+                <figure>
+                    <img src="https://datos.gob.es/sites/default/files/styles/wide/public/blog/image/04_0.jpg?itok=8FmuVgOz"
+                        alt="Icono de desarrollo web" width="800px">
+                    <figcaption>Interfaces modernas y escalables.</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Consultoría IT</h3>
+                <P>Asesoría en infraestructura y optimización de procesos.</P>
+            </article>
+
+            <article>
+                <h3>E-commerce</h3>
+                <p>Tiendas virtuales integradas con pasarelas de pago.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Planes y Precios</h2>
+            <table border="1" style="border-collapse: collapse; width: 35%; margin-left: 0; margin-right: auto;">
+
+                <thead>
+                    <tr style="background-color: #2c3e50; color: white;">
+                        <th colspan="3" style="padding: 15px; text-align: center;">
+                            Empresa: GLEKOM S.A.C.
+                        </th>
+                    </tr>
+
+                    <tr style="background-color: #faea92;">
+                        <th style="padding: 10px;">Servicios</th>
+                        <th style="padding: 10px;">Plan Básico</th>
+                        <th style="padding: 10px;">Plan Premium</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Desarrollo Web</td>
+                        <td>Landing Page</td>
+                        <td>E-commerce Completo</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soporte</td>
+                        <td>Vía Email</td>
+                        <td>24/7 WhatsApp</td>
+                    </tr>
+
+                    <tr>
+                        <td>Actualizaciones</td>
+                        <td>Mensuales</td>
+                        <td>Semanales</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td><strong>Inversión Estimada</strong></td>
+                        <td>$500</td>
+                        <td>$1500</td>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+        </section>
+
+        <hr>
+        <section>
+            <h2>¿Cómo trabajamos?</h2>
+
+            <h3>Pasos para contratar:</h3>
+            <ol>
+                <li>Reunión de diagnóstico inicial.</li>
+                <li>Presentación de presupuesto técnico.</li>
+                <li>Firma de contrato y kick-off del proyecto.</li>
+            </ol>
+
+            <h3>Tecnologías que dominamos:</h3>
+            <ul>
+                <li>Python (Flask / Django)</li>
+                <li>JavaScrip (React)</li>
+                <li>SQL (PostgreSQL / MySQL)</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+
+        <section id="Contacto">
+            <h2>Contáctanos</h2>
+            <form action="/enviar" method="post">
+                <div>
+                    <label for="nombre">Nombre Completo:</label>
+                    <br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Peréz" required>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                    <br>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="Género:"></label>
+                    <br>
+                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+
+                    <input type="radio" id="femenino" name="genero" value="femenino">
+                    <label for="femenino">Femenino</label>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="pais">País de Nacimiento:</label>
+                    <br>
+                    <select id="pais" name="pais" required>
+                        <option value="">-- Selecciona un país --</option>
+                        <option value="peru">Perú</option>
+                        <option value="mexico">México</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="espana">España</option>
+                        <option value="otro">Otros</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="telefono">Número de Teléfono</label>
+                    <br>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ej: +51 998 665 001" required>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="Email">Correo Electrónico:</label><br>
+                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="mensaje">Mensaje:</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="4" cols="30" placeholder="¿En qué podemos ayudarte?"
+                        required></textarea>
+                </div>
+
+                <br>
+
+                <button type="submit">Enviar Solicitud</button>
+                <button type="reset">Limpiar Formulario</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Contacto: info@solucionesdigitales.com | &copy; 2026</p>
+    </footer>
+
+</body>
+
+</html>

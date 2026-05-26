@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glekom - Formulario con Box Model</title>
+    <link rel="stylesheet" href="stylev4.css">
+</head>
+
+<body>
+
+    <header>
+        <h1 class="titulo-principal">Panel de Control GLEKOM</h1>
+        <p id="subtitulo-bienvenida">Gestión de Clientes y Servicios</p>
+    </header>
+
+    <main>
+        <section class="tarjeta-servicio">
+            <h2>Registro de Cliente</h2>
+            <p class="descripcion">Ingresa los datos para la cotización de software.</p>
+            
+            <form>
+                <div class="grupo-campo">
+                    <label for="nombre">Nombre de la Empresa:</label>
+                    <input type="text" id="nombre" class="input-formulario" placeholder="Ej: GLEKOM S.A.C.">
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="email">Correo Corporativo:</label>
+                    <input type="email" id="email" class="input-formulario" placeholder="correo@empresa.com">
+                </div>
+
+                <button type="button" class="btn-primario">Guardar Cliente</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

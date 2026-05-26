@@ -1,0 +1,108 @@
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Fraunces */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+body {
+    background-color: hsl(30, 38%, 92%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#card {
+    background-color: white;
+    font-family: 'Montserrat';
+    width: 600px;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#cardImg {
+    width: 300px;
+    min-height: 300px;
+    background-image: url(./images/image-product-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#cardDescription {
+    width: 300px;
+    padding: 1em 2em;
+}
+
+p {
+    color: hsl(228, 12%, 48%);
+}
+
+#cardPrice {
+    display: flex;
+    align-items: center;
+    font-family: 'Fraunces';
+    gap: 20px;
+    margin-top: -30px;
+    margin-bottom: -10px;
+}
+
+#newPrice {
+    font-size: 30px;
+    color: hsl(158, 36%, 37%);
+    font-weight: bold;
+}
+
+#oldPrice {
+    font-size: 14px;
+    color: hsl(228, 12%, 48%);
+}
+
+#category {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#productDescription {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+button {
+    background-color: hsl(158, 36%, 37%);
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    p {
+        color: white;
+    }
+}
+
+button:hover {
+    background-color: hsl(158, 42%, 18%);
+}
+
+@media (width <=600px) {
+    #card {
+        flex-direction: column;
+    }
+
+    #cardDescription { padding: .5em 1em; }
+
+    #cardDescription,#cardImg {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #cardImg {
+        background-image: url(./images/image-product-mobile.jpg);
+    }
+}

@@ -1,0 +1,39 @@
+/* 1. Selector de Etiqueta: Afecta a todos los cuerpos de la página */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333333;
+    margin: 0; /* Eliminamos los márgenes por defecto del navegador */
+}
+
+/* 2. Selector de ID: Usa '#' y afecta a un único elemento en toda la web */
+#subtitulo-bienvenida {
+    color: #555555;
+    font-style: italic;
+}
+
+/* 3. Selector de Clase: Usa '.' y se puede reutilizar en muchas etiquetas */
+.titulo-principal {
+    color: #1a73e8;
+    text-align: center;
+}
+
+/* 4. Aplicando el Box Model (Modelo de Caja) */
+.tarjeta-info {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;     /* Borde de la caja */
+    padding: 20px;                 /* Espacio INTERNO entre el texto y el borde */
+    margin: 30px auto;             /* Espacio EXTERNO: 30px arriba/abajo, auto a los lados (centrado) */
+    width: 80%;                    /* Ancho de la caja */
+    max-width: 500px;              /* Límite máximo de ancho */
+    border-radius: 8px;            /* Esquinas redondeadas */
+}
+
+.btn-accion {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}

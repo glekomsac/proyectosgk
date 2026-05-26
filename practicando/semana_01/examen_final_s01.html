@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificación Semana 1 - HTML Profesional</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 800px; width: 100%; }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 15px; }
+        .pregunta-bloque { margin-bottom: 30px; padding: 20px; border: 1px solid #e1e1e1; border-radius: 10px; background: #fff; }
+        .opcion { display: block; margin: 10px 0; padding: 10px; border-radius: 5px; cursor: pointer; border: 1px solid #eee; transition: 0.3s; }
+        .opcion:hover { background: #eef2f7; }
+        button#btn-finalizar { background: #3498db; color: white; border: none; padding: 15px; border-radius: 8px; cursor: pointer; width: 100%; font-size: 18px; font-weight: bold; }
+        #resultado { margin-top: 30px; padding: 20px; display: none; border-radius: 10px; text-align: center; }
+        .explicacion { display: none; margin-top: 15px; padding: 15px; background: #e8f4fd; border-left: 5px solid #3498db; font-size: 0.95em; color: #333; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; color: #e83e8c; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🏆 Examen de Certificación: Semana 1</h1>
+    <div id="quiz-container"></div>
+    <button id="btn-finalizar" onclick="calificar()">Enviar y Ver Resultados</button>
+    <div id="resultado"></div>
+</div>
+
+<script>
+    const preguntas = [
+        { p: "1. ¿Qué etiqueta define el contenido principal y único de una página?", o: ["&lt;section&gt;", "&lt;main&gt;", "&lt;div&gt;", "&lt;article&gt;"], r: 1, exp: "&lt;main&gt; es la etiqueta semántica para el núcleo de la página." },
+        { p: "2. Atributo para que una celda se extienda horizontalmente en 3 columnas:", o: ["rowspan='3'", "colspan='3'", "width='3'", "grid-column='3'"], r: 1, exp: "Colspan (column span) expande la celda hacia los lados." },
+        { p: "3. Etiqueta para pasos numerados (1, 2, 3):", o: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;dl&gt;", "&lt;list&gt;"], r: 1, exp: "&lt;ol&gt; significa Ordered List." },
+        { p: "4. ¿Para qué sirve el atributo 'name' en un input?", o: ["Texto de ayuda", "Para que el Backend identifique el dato", "Vincular con el label", "Estilos CSS"], r: 1, exp: "El 'name' es la llave que usa el servidor para recibir el valor." },
+        { p: "5. ¿Función de la etiqueta &lt;header&gt;?", o: ["Solo título H1", "Encabezado de página o sección", "Mover texto arriba", "Sustituir a &lt;head&gt;"], r: 1, exp: "Contiene logos, títulos o navegación introductoria." },
+        { p: "6. Atributo para campo obligatorio:", o: ["validation='true'", "required", "important", "status='full'"], r: 1, exp: "Required es un atributo booleano de HTML5." },
+        { p: "7. Diferencia entre enlace absoluto y relativo:", o: ["Absoluto usa solo el nombre del archivo", "Absoluto incluye URL completa (http://)", "Relativo es más rápido", "No hay diferencia"], r: 1, exp: "El absoluto apunta a una dirección externa completa." },
+        { p: "8. Etiqueta para agrupar imagen y su leyenda:", o: ["&lt;div&gt;", "&lt;figure&gt;", "&lt;picture&gt;", "&lt;image-box&gt;"], r: 1, exp: "&lt;figure&gt; se usa junto con &lt;figcaption&gt;." },
+        { p: "9. Método por defecto de un formulario si no se especifica:", o: ["POST", "GET", "PUSH", "UPDATE"], r: 1, exp: "GET envía los datos a través de la URL." },
+        { p: "10. Etiqueta que define una FILA en una tabla:", o: ["&lt;td&gt;", "&lt;tr&gt;", "&lt;th&gt;", "&lt;row&gt;"], r: 1, exp: "&lt;tr&gt; significa Table Row." },
+        { p: "11. ¿Para qué sirve el 'id' en un elemento?", o: ["Varios elementos", "Identificador único", "Idioma del texto", "Resolución imagen"], r: 1, exp: "El ID debe ser irrepetible en el mismo documento." },
+        { p: "12. Salto de línea simple sin nuevo párrafo:", o: ["&lt;enter&gt;", "&lt;br&gt;", "&lt;hr&gt;", "&lt;space&gt;"], r: 1, exp: "&lt;br&gt; rompe la línea de texto." },
+        { p: "13. ¿Qué permite elegir múltiples opciones en un formulario?", o: ["radio", "checkbox", "select", "button"], r: 1, exp: "Los checkboxes permiten selecciones múltiples." },
+        { p: "14. Propósito de la etiqueta &lt;nav&gt;:", o: ["Mapas", "Enlaces de navegación", "Menú automático", "Carga de video"], r: 1, exp: "Define bloques de navegación principal." },
+        { p: "15. ¿Qué es una etiqueta 'semántica'?", o: ["Tiene estilos CSS", "Describe su significado", "Solo contiene texto", "Compatible con IE6"], r: 1, exp: "Indica qué rol cumple el contenido." },
+        { p: "16. Estructura mínima de una tabla:", o: ["&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;", "Tabla-Celda-Fila", "Solo filas", "thead sin table"], r: 0, exp: "Jerarquía: Tabla > Fila > Celda." },
+        { p: "17. ¿Qué hace target='_blank'?", o: ["Descarga", "Nueva pestaña", "Color blanco", "Enlace vacío"], r: 1, exp: "Abre el recurso en una pestaña diferente." },
+        { p: "18. Título más importante de la página:", o: ["&lt;head&gt;", "&lt;h1&gt;", "&lt;title&gt;", "&lt;caption&gt;"], r: 1, exp: "H1 es el nivel jerárquico superior." },
+        { p: "19. Etiqueta nativa para video en HTML5:", o: ["&lt;embed&gt;", "&lt;video&gt;", "&lt;movie&gt;", "&lt;iframe&gt;"], r: 1, exp: "&lt;video&gt; es el estándar nativo." },
+        { p: "20. Atributo para el idioma en &lt;html&gt;:", o: ["language", "lang", "content-type", "charset"], r: 1, exp: "lang='es' define el idioma español." }
+    ];
+
+    function cargarQuiz() {
+        const container = document.getElementById('quiz-container');
+        preguntas.forEach((item, index) => {
+            let html = `<div class="pregunta-bloque">
+                <p><strong>${item.p}</strong></p>`;
+            item.o.forEach((opcion, i) => {
+                html += `<label class="opcion"><input type="radio" name="pregunta${index}" value="${i}"> ${opcion}</label>`;
+            });
+            html += `<div id="exp-${index}" class="explicacion"><strong>Explicación:</strong> ${item.exp}</div></div>`;
+            container.innerHTML += html;
+        });
+    }
+
+    function calificar() {
+        let nota = 0;
+        let completado = true;
+
+        preguntas.forEach((item, index) => {
+            const seleccion = document.querySelector(`input[name="pregunta${index}"]:checked`);
+            const explicacion = document.getElementById(`exp-${index}`);
+            explicacion.style.display = "block";
+
+            if (seleccion) {
+                if (parseInt(seleccion.value) === item.r) {
+                    nota++;
+                }
+            } else {
+                completado = false;
+            }
+        });
+
+        if (!completado) {
+            alert("Por favor, termina todas las preguntas.");
+            return;
+        }
+
+        const resDiv = document.getElementById('resultado');
+        resDiv.style.display = "block";
+        resDiv.innerHTML = `<h2>Tu Puntaje: ${nota} / 20</h2>`;
+        resDiv.style.background = nota >= 15 ? "#d4edda" : "#f8d7da";
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    cargarQuiz();
+</script>
+
+</body>
+</html>
